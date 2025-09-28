@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://rafaelbrito00.github.io/calcurama/calculadoras/calorias-diarias.html</loc><lastmod>2025-09-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://rafaelbrito00.github.io/calcurama/calculadoras/emprestimo-price.html</loc><lastmod>2025-09-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://rafaelbrito00.github.io/calcurama/calculadoras/gordura-corporal.html</loc><lastmod>2025-09-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://rafaelbrito00.github.io/calcurama/calculadoras/idade.html</loc><lastmod>2025-09-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://rafaelbrito00.github.io/calcurama/calculadoras/imc.html</loc><lastmod>2025-09-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://rafaelbrito00.github.io/calcurama/calculadoras/juros-compostos.html</loc><lastmod>2025-09-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://rafaelbrito00.github.io/calcurama/calculadoras/porcentagem.html</loc><lastmod>2025-09-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://rafaelbrito00.github.io/calcurama/calculadoras/regra-de-3.html</loc><lastmod>2025-09-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://rafaelbrito00.github.io/calcurama/calculadoras/tmb.html</loc><lastmod>2025-09-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://rafaelbrito00.github.io/calcurama/conversores/comprimento.html</loc><lastmod>2025-09-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://rafaelbrito00.github.io/calcurama/conversores/horas-minutos.html</loc><lastmod>2025-09-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://rafaelbrito00.github.io/calcurama/conversores/medidas-cozinha.html</loc><lastmod>2025-09-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://rafaelbrito00.github.io/calcurama/conversores/peso.html</loc><lastmod>2025-09-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://rafaelbrito00.github.io/calcurama/conversores/temperatura.html</loc><lastmod>2025-09-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://rafaelbrito00.github.io/calcurama/index.html</loc><lastmod>2025-09-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://rafaelbrito00.github.io/calcurama/paginas/contato.html</loc><lastmod>2025-09-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://rafaelbrito00.github.io/calcurama/paginas/politica-privacidade.html</loc><lastmod>2025-09-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://rafaelbrito00.github.io/calcurama/paginas/sobre.html</loc><lastmod>2025-09-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <url>
+    <loc>https://rafaelbrito55.github.io/Calcula-tudo-online/</loc>
+  </url>
+
+  <url>
+    <loc>https://rafaelbrito55.github.io/Calcula-tudo-online/paginas/sobre.html</loc>
+  </url>
+
+  <url>
+    <loc>https://rafaelbrito55.github.io/Calcula-tudo-online/paginas/contato.html</loc>
+  </url>
+
+  <url>
+    <loc>https://rafaelbrito55.github.io/Calcula-tudo-online/paginas/privacidade.html</loc>
+  </url>
+
+  <url>
+    <loc>https://rafaelbrito55.github.io/Calcula-tudo-online/calculadoras/</loc>
+  </url>
+
+  <url>
+    <loc>https://rafaelbrito55.github.io/Calcula-tudo-online/conversores/</loc>
+  </url>
+
 </urlset>
