@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://rafaelbrito55.github.io/Calcula-tudo-online/sitemap.xml
+Sitemap: https://rafaelbrito55.github.io/Calcula-tudo-online/sitemap_index.xml
