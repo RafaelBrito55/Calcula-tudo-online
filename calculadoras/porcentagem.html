@@ -1,170 +1,43 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Calculadora de Porcentagem</title><meta content="Descontos, acréscimos e proporções." name="description"/>
+<link href="../ativos/css/style.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de Porcentagem","description":"Descontos, acréscimos e proporções.","operatingSystem":"All"}</script>
+</head><body>
+<header><div class="nav">
+<a class="brand" href="../index.html"><span class="dot"></span> Calcula Tudo Online</a>
 
-  <!-- SEO da Calculadora de Porcentagem -->
-  <title>Calculadora de Porcentagem Online – Calcular % fácil e rápido</title>
-  <meta name="description" content="Calcule porcentagens em segundos: quanto é X% de Y, desconto, aumento e variação percentual. Simples e gratuito.">
-  <link rel="canonical" href="https://rafaelbrito55.github.io/Calcula-tudo-online/calculadoras/porcentagem.html">
-  <meta name="robots" content="index, follow">
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Calculadora de Porcentagem Online">
-  <meta property="og:description" content="Calcule X% de Y, descontos, aumentos e variação percentual facilmente.">
-  <meta property="og:url" content="https://rafaelbrito55.github.io/Calcula-tudo-online/calculadoras/porcentagem.html">
-  <meta property="og:type" content="article">
-  <meta name="twitter:card" content="summary">
-
-  <!-- JSON-LD SoftwareApplication + FAQ -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Calculadora de Porcentagem",
-    "applicationCategory": "Calculator",
-    "operatingSystem": "Web",
-    "url": "https://rafaelbrito55.github.io/Calcula-tudo-online/calculadoras/porcentagem.html",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
-    "publisher": { "@type": "Organization", "name": "Calcula Tudo Online" }
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Como calcular X% de Y?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Multiplique Y por (X/100). Exemplo: 15% de 200 = 200 × 0,15 = 30." }
-      },
-      {
-        "@type": "Question",
-        "name": "Como calcular desconto percentual?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Preço com desconto = Preço × (1 − desconto/100). Ex.: 80 com 25% off = 80 × 0,75 = 60." }
-      },
-      {
-        "@type": "Question",
-        "name": "Como calcular variação percentual?",
-        "acceptedAnswer": { "@type": "Answer", "text": "((valor final − valor inicial) ÷ valor inicial) × 100. Ex.: de 120 para 150 = (30/120)×100 = 25%." }
-      }
-    ]
-  }
-  </script>
-
-  <style>
-    :root { --max: 920px; }
-    * { box-sizing: border-box; }
-    body { font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; margin: 0; line-height: 1.7; }
-    header, main, footer { max-width: var(--max); margin: 0 auto; padding: 24px; }
-    h1, h2 { margin: 0 0 8px; line-height: 1.25; }
-    p { margin: 0 0 12px; }
-    label { display:block; margin: 8px 0 4px; }
-    input, select, button { padding: 10px 12px; border: 1px solid #e5e7eb; border-radius: 10px; width: 100%; max-width: 320px; }
-    button { cursor: pointer; }
-    .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-    .card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; margin: 12px 0; }
-    .result { font-weight: 600; font-size: 1.1rem; }
-    footer { color: #64748b; font-size: 14px; }
-  </style>
-</head>
-<body>
-  <header>
-    <nav aria-label="breadcrumb">
-      <a href="/Calcula-tudo-online/">Início</a> ›
-      <a href="/Calcula-tudo-online/calculadoras/">Calculadoras</a> ›
-      <span aria-current="page">Porcentagem</span>
-    </nav>
-
-    <h1>Calculadora de Porcentagem</h1>
-    <p>Use esta calculadora para descobrir quanto é X% de Y, aplicar desconto ou aumento e calcular variação percentual. Ideal para compras, estudos e finanças do dia a dia.</p>
-    <p><small>Atualizado em: 28/09/2025</small></p>
-  </header>
-
-  <main>
-    <section class="card" aria-labelledby="calc">
-      <h2 id="calc">Calcular</h2>
-      <div class="grid">
-        <div>
-          <label for="tipo">Tipo</label>
-          <select id="tipo">
-            <option value="x_de_y">Quanto é X% de Y</option>
-            <option value="desconto">Aplicar desconto (%)</option>
-            <option value="aumento">Aplicar aumento (%)</option>
-            <option value="variacao">Variação percentual</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="valor1">Valor 1</label>
-          <input id="valor1" type="number" placeholder="Ex.: 15 ou 200">
-        </div>
-
-        <div id="campo-valor2">
-          <label for="valor2">Valor 2</label>
-          <input id="valor2" type="number" placeholder="Ex.: 200">
-        </div>
-
-        <div style="align-self:end">
-          <button id="btnCalcular">Calcular</button>
-        </div>
-      </div>
-
-      <p class="result" id="resultado" aria-live="polite"></p>
-    </section>
-
-    <section class="card" aria-labelledby="como-usar">
-      <h2 id="como-usar">Como usar</h2>
-      <ul>
-        <li>Para X% de Y: informe os valores e clique em calcular.</li>
-        <li>Para desconto/aumento: selecione o tipo e informe a porcentagem.</li>
-        <li>Veja os exemplos abaixo para conferir a conta.</li>
-      </ul>
-    </section>
-
-    <section class="card" aria-labelledby="exemplos">
-      <h2 id="exemplos">Exemplos</h2>
-      <ul>
-        <li><strong>15% de 200</strong> = 30</li>
-        <li><strong>Desconto de 25% em 80</strong> = 60</li>
-        <li><strong>De 120 para 150</strong>: variação de 25%</li>
-      </ul>
-    </section>
-
-    <section class="card" aria-labelledby="veja-tambem">
-      <h2 id="veja-tambem">Veja também</h2>
-      <ul>
-        <li><a href="/Calcula-tudo-online/calculadoras/">Mais calculadoras</a></li>
-        <li><a href="/Calcula-tudo-online/conversores/">Conversores</a></li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 Calcula Tudo Online — Projeto hospedado no GitHub Pages.</p>
-  </footer>
-
-  <script>
-    const tipo = document.getElementById('tipo');
-    const valor1 = document.getElementById('valor1');
-    const valor2 = document.getElementById('valor2');
-    const campoValor2 = document.getElementById('campo-valor2');
-    const resultado = document.getElementById('resultado');
-    const btn = document.getElementById('btnCalcular');
-
-    function atualizarCampos() {
-      const t = tipo.value;
-      if (t === 'variacao') {
-        campoValor2.style.display = 'block';
-        valor1.placeholder = 'Valor inicial';
-        valor2.placeholder = 'Valor final';
-      } else if (t === 'x_de_y') {
-        campoValor2.style.display = 'block';
-        valor1.placeholder = 'X (porcentagem)';
-        valor2.placeholder = 'Y (valor)';
-      } else {
-        campoValor2.style.display = 'block';
-        valor1.placeholder = 'Valor';
+</div></header><div class="container">
+<h1>Porcentagem</h1>
+<form><fieldset><legend>Operações comuns</legend>
+<label>Quanto é X% de Y?
+  <input id="x" placeholder="X %" step="0.01" type="number" value="10"/>
+<input id="y" placeholder="Y" step="0.01" type="number" value="200"/>
+</label>
+<button id="btn1" type="button">Calcular X% de Y</button>
+<hr/>
+<label>Aplicar desconto (%) em um valor
+  <input id="v1" placeholder="Valor" step="0.01" type="number" value="100"/>
+<input id="dsc" placeholder="Desconto %" step="0.01" type="number" value="15"/>
+</label>
+<button id="btn2" type="button">Aplicar desconto</button>
+<hr/>
+<label>Aplicar aumento (%) em um valor
+  <input id="v2" placeholder="Valor" step="0.01" type="number" value="100"/>
+<input id="aum" placeholder="Aumento %" step="0.01" type="number" value="10"/>
+</label>
+<button id="btn3" type="button">Aplicar aumento</button>
+</fieldset></form>
+<div class="output" hidden="" id="out"><div id="res"></div></div>
+<script>
+const br=new Intl.NumberFormat('pt-BR',{maximumFractionDigits:2});
+btn1.onclick=()=>{const X=parseFloat(x.value||0),Y=parseFloat(y.value||0); const r=Y*(X/100); res.innerHTML=`<p>${br.format(X)}% de ${br.format(Y)} = <strong>${br.format(r)}</strong></p>`; out.hidden=false;};
+btn2.onclick=()=>{const V=parseFloat(v1.value||0),P=parseFloat(dsc.value||0); const r=V*(1-P/100); res.innerHTML=`<p>${br.format(P)}% de desconto em ${br.format(V)} = <strong>${br.format(r)}</strong></p>`; out.hidden=false;};
+btn3.onclick=()=>{const V=parseFloat(v2.value||0),P=parseFloat(aum.value||0); const r=V*(1+P/100); res.innerHTML=`<p>${br.format(P)}% de aumento em ${br.format(V)} = <strong>${br.format(r)}</strong></p>`; out.hidden=false;};
+btn1.click();
+</script>
+</div><footer><div class="footer-inner">
+<span class="badge">© 2025 Calcula Tudo Online</span>
+<span class="badge">LGPD: veja nossa <a href="paginas/politica-privacidade.html">Política de Privacidade</a></span>
+</div></footer></body></html>
