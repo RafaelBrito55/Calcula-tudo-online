@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Calculadora de Idade</title><meta content="Idade em anos, meses e dias." name="description"/>
+<link href="../ativos/css/style.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de Idade","description":"Idade em anos, meses e dias.","operatingSystem":"All"}</script>
+</head><body>
+<header><div class="nav">
+<a class="brand" href="../index.html"><span class="dot"></span> Calcula Tudo Online</a>
+
+</div></header><div class="container">
+<h1>Calculadora de Idade</h1>
+<form><fieldset><legend>Parâmetros</legend>
+<label>Data de nascimento<input id="dt" type="date"/></label>
+<button id="btn" type="button">Calcular</button>
+</fieldset></form>
+<div class="output" hidden="" id="out"><div id="res"></div></div>
+<script>
+btn.onclick=()=>{
+  const d = new Date(dt.value);
+  if(isNaN(d)){res.textContent='Informe uma data válida.'; out.hidden=false; return;}
+  const now = new Date();
+  let anos = now.getFullYear()-d.getFullYear();
+  let meses = now.getMonth()-d.getMonth();
+  let dias = now.getDate()-d.getDate();
+  if(dias<0){meses--; dias += new Date(now.getFullYear(), now.getMonth(), 0).getDate();}
+  if(meses<0){anos--; meses += 12;}
+  res.innerHTML = `<p><strong>${anos}</strong> anos, <strong>${meses}</strong> meses e <strong>${dias}</strong> dias.</p>`;
+  out.hidden=false;
+};
+</script>
+</div><footer><div class="footer-inner">
+<span class="badge">© 2025 Calcula Tudo Online</span>
+<span class="badge">LGPD: veja nossa <a href="paginas/politica-privacidade.html">Política de Privacidade</a></span>
+</div></footer></body></html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Conversor de Medidas de Cozinha</title><meta content="xícaras, colheres e ml." name="description"/>
+<link href="../ativos/css/style.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Conversor de Medidas de Cozinha","description":"xícaras, colheres e ml.","operatingSystem":"All"}</script>
+</head><body>
+<header><div class="nav">
+<a class="brand" href="../index.html"><span class="dot"></span> Calcula Tudo Online</a>
+
+</div></header><div class="container">
+<h1>Medidas de Cozinha</h1>
+<p>Aproximações comuns (podem variar por ingrediente).</p>
+<form><fieldset><legend>Conversões</legend>
+<label>Colheres de sopa (cs)<input id="cs" step="0.1" type="number"/></label>
+<label>Mililitros (ml)<input id="ml" step="0.1" type="number"/></label>
+<button id="b1" type="button">cs → ml</button>
+<button id="b2" type="button">ml → cs</button>
+<hr/>
+<label>Xícaras (240 ml)<input id="xic" step="0.1" type="number"/></label>
+<label>Mililitros (ml)<input id="ml2" step="0.1" type="number"/></label>
+<button id="b3" type="button">xíc → ml</button>
+<button id="b4" type="button">ml → xíc</button>
+</fieldset></form>
+<div class="output" hidden="" id="out"><div id="res"></div><small>Notas: 1 colher de sopa ≈ 15 ml; 1 xícara padrão ≈ 240 ml.</small></div>
+<script>
+const nf=new Intl.NumberFormat('pt-BR',{maximumFractionDigits:2});
+b1.onclick=()=>{const v=parseFloat(cs.value||0); res.innerHTML=`${nf.format(v)} cs ≈ <strong>${nf.format(v*15)}</strong> ml`; out.hidden=false;};
+b2.onclick=()=>{const v=parseFloat(ml.value||0); res.innerHTML=`${nf.format(v)} ml ≈ <strong>${nf.format(v/15)}</strong> cs`; out.hidden=false;};
+b3.onclick=()=>{const v=parseFloat(xic.value||0); res.innerHTML=`${nf.format(v)} xíc ≈ <strong>${nf.format(v*240)}</strong> ml`; out.hidden=false;};
+b4.onclick=()=>{const v=parseFloat(ml2.value||0); res.innerHTML=`${nf.format(v)} ml ≈ <strong>${nf.format(v/240)}</strong> xíc`; out.hidden=false;};
+</script>
+</div><footer><div class="footer-inner">
+<span class="badge">© 2025 Calcula Tudo Online</span>
+<span class="badge">LGPD: veja nossa <a href="paginas/politica-privacidade.html">Política de Privacidade</a></span>
+</div></footer></body></html>

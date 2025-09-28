@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Calculadora de IMC</title><meta content="Índice de Massa Corporal." name="description"/>
+<link href="../ativos/css/style.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de IMC","description":"Índice de Massa Corporal.","operatingSystem":"All"}</script>
+</head><body>
+<header><div class="nav">
+<a class="brand" href="../index.html"><span class="dot"></span> Calcula Tudo Online</a>
+
+</div></header><div class="container">
+<h1>IMC</h1>
+<form><fieldset><legend>Parâmetros</legend>
+<label>Peso (kg)<input id="peso" step="0.1" type="number" value="75"/></label>
+<label>Altura (cm)<input id="alt" step="0.1" type="number" value="175"/></label>
+<button id="btn" type="button">Calcular</button>
+</fieldset></form>
+<div class="output" hidden="" id="out"><div id="res"></div><small>IMC = peso / (altura em metros)^2</small></div>
+<script>
+const nf=new Intl.NumberFormat('pt-BR',{maximumFractionDigits:2});
+function cls(x){if(x<18.5)return"Baixo peso";if(x<25)return"Peso adequado";if(x<30)return"Sobrepeso";if(x<35)return"Obesidade I";if(x<40)return"Obesidade II";return"Obesidade III";}
+btn.onclick=()=>{const p=parseFloat(peso.value||0), h=parseFloat(alt.value||0)/100; const imc=p/(h*h); const c=cls(imc);
+const min=18.5*h*h, max=24.9*h*h; res.innerHTML=`<p><strong>IMC:</strong> ${nf.format(imc)}<br><strong>Classificação:</strong> ${c}<br><strong>Peso adequado:</strong> ${nf.format(min)}–${nf.format(max)} kg</p>`; out.hidden=false;};
+btn.click();
+</script>
+</div><footer><div class="footer-inner">
+<span class="badge">© 2025 Calcula Tudo Online</span>
+<span class="badge">LGPD: veja nossa <a href="paginas/politica-privacidade.html">Política de Privacidade</a></span>
+</div></footer></body></html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Conversor de Peso</title><meta content="kg, g, lb e oz." name="description"/>
+<link href="../ativos/css/style.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Conversor de Peso","description":"kg, g, lb e oz.","operatingSystem":"All"}</script>
+</head><body>
+<header><div class="nav">
+<a class="brand" href="../index.html"><span class="dot"></span> Calcula Tudo Online</a>
+
+</div></header><div class="container">
+<h1>Conversor de Peso</h1>
+<form><fieldset><legend>Converter</legend>
+<label>Quilogramas (kg)<input id="kg" step="0.0001" type="number"/></label>
+<label>Gramas (g)<input id="g" step="0.0001" type="number"/></label>
+<label>Libras (lb)<input id="lb" step="0.0001" type="number"/></label>
+<label>Onças (oz)<input id="oz" step="0.0001" type="number"/></label>
+</fieldset></form>
+<script>
+let lock=false;
+function setAll(from){
+  if(lock) return; lock=true;
+  let KG,G,LB,OZ;
+  if(from==='kg'){KG=parseFloat(kg.value); G=KG*1000; LB=KG*2.20462262; OZ=KG*35.2739619;}
+  if(from==='g'){G=parseFloat(g.value); KG=G/1000; LB=KG*2.20462262; OZ=KG*35.2739619;}
+  if(from==='lb'){LB=parseFloat(lb.value); KG=LB/2.20462262; G=KG*1000; OZ=LB*16;}
+  if(from==='oz'){OZ=parseFloat(oz.value); LB=OZ/16; KG=LB/2.20462262; G=KG*1000;}
+  if(!Number.isNaN(KG)) kg.value=+KG.toFixed(6);
+  if(!Number.isNaN(G)) g.value=+G.toFixed(2);
+  if(!Number.isNaN(LB)) lb.value=+LB.toFixed(6);
+  if(!Number.isNaN(OZ)) oz.value=+OZ.toFixed(6);
+  lock=false;
+}
+['input','change'].forEach(e=>{
+  kg.addEventListener(e,()=>setAll('kg')); g.addEventListener(e,()=>setAll('g'));
+  lb.addEventListener(e,()=>setAll('lb')); oz.addEventListener(e,()=>setAll('oz'));
+});
+</script>
+</div><footer><div class="footer-inner">
+<span class="badge">© 2025 Calcula Tudo Online</span>
+<span class="badge">LGPD: veja nossa <a href="paginas/politica-privacidade.html">Política de Privacidade</a></span>
+</div></footer></body></html>

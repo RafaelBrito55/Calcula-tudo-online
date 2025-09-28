@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Simulador de Empréstimo (PRICE)</title><meta content="Parcela fixa, juros e total pago." name="description"/>
+<link href="../ativos/css/style.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Simulador de Empréstimo (PRICE)","description":"Parcela fixa, juros e total pago.","operatingSystem":"All"}</script>
+</head><body>
+<header><div class="nav">
+<a class="brand" href="../index.html"><span class="dot"></span> Calcula Tudo Online</a>
+
+</div></header><div class="container">
+<h1>Simulador de Empréstimo (PRICE)</h1>
+<form><fieldset><legend>Parâmetros</legend>
+<label>Valor (R$)<input id="pv" step="0.01" type="number" value="10000"/></label>
+<label>Taxa mensal (% a.m.)<input id="i" step="0.0001" type="number" value="2"/></label>
+<label>Prazo (meses)<input id="n" step="1" type="number" value="24"/></label>
+<button id="btn" type="button">Calcular</button>
+</fieldset></form>
+<div class="output" hidden="" id="out"><div id="res"></div>
+<div style="overflow:auto"><table><thead><tr><th>Mês</th><th>Parcela</th><th>Juros</th><th>Amortização</th><th>Saldo</th></tr></thead><tbody id="tb"></tbody></table></div></div>
+<script>
+const brl=new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'});
+btn.onclick=()=>{
+  const PV=parseFloat(pv.value||0), im=parseFloat(i.value||0)/100, N=parseInt(n.value||0,10);
+  const parcela = im===0? PV/N : PV * (im*Math.pow(1+im,N))/(Math.pow(1+im,N)-1);
+  let saldo=PV; let rows=[], jurosTot=0;
+  for(let k=1;k<=N;k++){const j=saldo*im; const amort=parcela-j; saldo=saldo-amort; jurosTot+=j; rows.push([k,parcela,j,amort,Math.max(saldo,0)]);}
+  tb.innerHTML=rows.map(r=>`<tr><td>${r[0]}</td><td>${brl.format(r[1])}</td><td>${brl.format(r[2])}</td><td>${brl.format(r[3])}</td><td>${brl.format(r[4])}</td></tr>`).join('');
+  res.innerHTML=`<p><strong>Parcela:</strong> ${brl.format(parcela)} • <strong>Juros totais:</strong> ${brl.format(jurosTot)} • <strong>Total pago:</strong> ${brl.format(parcela*N)}</p>`;
+  out.hidden=false;
+}; btn.click();
+</script>
+</div><footer><div class="footer-inner">
+<span class="badge">© 2025 Calcula Tudo Online</span>
+<span class="badge">LGPD: veja nossa <a href="paginas/politica-privacidade.html">Política de Privacidade</a></span>
+</div></footer></body></html>

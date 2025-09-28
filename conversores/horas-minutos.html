@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Conversor de Horas e Minutos</title><meta content="Converta tempo facilmente." name="description"/>
+<link href="../ativos/css/style.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Conversor de Horas e Minutos","description":"Converta tempo facilmente.","operatingSystem":"All"}</script>
+</head><body>
+<header><div class="nav">
+<a class="brand" href="../index.html"><span class="dot"></span> Calcula Tudo Online</a>
+
+</div></header><div class="container">
+<h1>Horas ↔ Minutos</h1>
+<form><fieldset><legend>Converter</legend>
+<label>Horas (h)<input id="h" step="0.01" type="number"/></label>
+<label>Minutos (min)<input id="m" step="1" type="number"/></label>
+<button id="toM" type="button">h → min</button>
+<button id="toH" type="button">min → h</button>
+</fieldset></form>
+<div class="output" hidden="" id="out"><div id="res"></div></div>
+<script>
+const nf=new Intl.NumberFormat('pt-BR',{maximumFractionDigits:2});
+toM.onclick=()=>{const H=parseFloat(h.value||0); const M=H*60; res.innerHTML=`${nf.format(H)} h = <strong>${nf.format(M)}</strong> min`; out.hidden=false;};
+toH.onclick=()=>{const M=parseFloat(m.value||0); const H=M/60; res.innerHTML=`${nf.format(M)} min = <strong>${nf.format(H)}</strong> h`; out.hidden=false;};
+</script>
+</div><footer><div class="footer-inner">
+<span class="badge">© 2025 Calcula Tudo Online</span>
+<span class="badge">LGPD: veja nossa <a href="paginas/politica-privacidade.html">Política de Privacidade</a></span>
+</div></footer></body></html>

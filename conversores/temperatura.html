@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Conversor de Temperatura</title><meta content="°C, °F e Kelvin." name="description"/>
+<link href="../ativos/css/style.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Conversor de Temperatura","description":"°C, °F e Kelvin.","operatingSystem":"All"}</script>
+</head><body>
+<header><div class="nav">
+<a class="brand" href="../index.html"><span class="dot"></span> Calcula Tudo Online</a>
+
+</div></header><div class="container">
+<h1>Conversor de Temperatura</h1>
+<form><fieldset><legend>Parâmetros</legend>
+<label>Celsius (°C)<input id="c" step="0.1" type="number"/></label>
+<label>Fahrenheit (°F)<input id="f" step="0.1" type="number"/></label>
+<label>Kelvin (K)<input id="k" step="0.1" type="number"/></label>
+</fieldset></form>
+<div class="output"><small>Fórmulas: °F = °C × 1,8 + 32 | K = °C + 273,15</small></div>
+<script>
+let lock=false; function setFrom(t){ if(lock) return; lock=true; let C,F,K;
+ if(t==='c'){C=parseFloat(c.value);F=C*1.8+32;K=C+273.15;}
+ if(t==='f'){F=parseFloat(f.value);C=(F-32)/1.8;K=C+273.15;}
+ if(t==='k'){K=parseFloat(k.value);C=K-273.15;F=C*1.8+32;}
+ if(!Number.isNaN(C)) c.value=+C.toFixed(2); if(!Number.isNaN(F)) f.value=+F.toFixed(2); if(!Number.isNaN(K)) k.value=+K.toFixed(2);
+ lock=false;}
+['input','change'].forEach(e=>{c.addEventListener(e,()=>setFrom('c')); f.addEventListener(e,()=>setFrom('f')); k.addEventListener(e,()=>setFrom('k'));});
+</script>
+</div><footer><div class="footer-inner">
+<span class="badge">© 2025 Calcula Tudo Online</span>
+<span class="badge">LGPD: veja nossa <a href="paginas/politica-privacidade.html">Política de Privacidade</a></span>
+</div></footer></body></html>

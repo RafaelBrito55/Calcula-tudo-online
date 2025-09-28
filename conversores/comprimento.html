@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Conversor de Comprimento</title><meta content="m, km, cm, milhas, pés e polegadas." name="description"/>
+<link href="../ativos/css/style.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Conversor de Comprimento","description":"m, km, cm, milhas, pés e polegadas.","operatingSystem":"All"}</script>
+</head><body>
+<header><div class="nav">
+<a class="brand" href="../index.html"><span class="dot"></span> Calcula Tudo Online</a>
+
+</div></header><div class="container">
+<h1>Conversor de Comprimento</h1>
+<form><fieldset><legend>Converter</legend>
+<label>Metros (m)<input id="m" step="0.0001" type="number"/></label>
+<label>Quilômetros (km)<input id="km" step="0.0001" type="number"/></label>
+<label>Centímetros (cm)<input id="cm" step="0.0001" type="number"/></label>
+<label>Milhas (mi)<input id="mi" step="0.0001" type="number"/></label>
+<label>Pés (ft)<input id="ft" step="0.0001" type="number"/></label>
+<label>Polegadas (in)<input id="inch" step="0.0001" type="number"/></label>
+</fieldset></form>
+<script>
+let lock=false;
+function setAll(from){
+  if(lock) return; lock=true;
+  let M,KM,CM,MI,FT,IN;
+  if(from==='m'){M=parseFloat(m.value); KM=M/1000; CM=M*100; MI=M/1609.344; FT=M*3.2808399; IN=M*39.3700787;}
+  if(from==='km'){KM=parseFloat(km.value); M=KM*1000; CM=M*100; MI=M/1609.344; FT=M*3.2808399; IN=M*39.3700787;}
+  if(from==='cm'){CM=parseFloat(cm.value); M=CM/100; KM=M/1000; MI=M/1609.344; FT=M*3.2808399; IN=M*39.3700787;}
+  if(from==='mi'){MI=parseFloat(mi.value); M=MI*1609.344; KM=M/1000; CM=M*100; FT=M*3.2808399; IN=M*39.3700787;}
+  if(from==='ft'){FT=parseFloat(ft.value); M=FT/3.2808399; KM=M/1000; CM=M*100; MI=M/1609.344; IN=M*12;}
+  if(from==='in'){IN=parseFloat(inch.value); M=IN/39.3700787; KM=M/1000; CM=M*100; MI=M/1609.344; FT=IN/12;}
+  if(!Number.isNaN(M)) m.value=+M.toFixed(6);
+  if(!Number.isNaN(KM)) km.value=+KM.toFixed(6);
+  if(!Number.isNaN(CM)) cm.value=+CM.toFixed(4);
+  if(!Number.isNaN(MI)) mi.value=+MI.toFixed(6);
+  if(!Number.isNaN(FT)) ft.value=+FT.toFixed(6);
+  if(!Number.isNaN(IN)) inch.value=+IN.toFixed(6);
+  lock=false;
+}
+['input','change'].forEach(e=>{
+  m.addEventListener(e,()=>setAll('m')); km.addEventListener(e,()=>setAll('km')); cm.addEventListener(e,()=>setAll('cm'));
+  mi.addEventListener(e,()=>setAll('mi')); ft.addEventListener(e,()=>setAll('ft')); inch.addEventListener(e,()=>setAll('in'));
+});
+</script>
+</div><footer><div class="footer-inner">
+<span class="badge">© 2025 Calcula Tudo Online</span>
+<span class="badge">LGPD: veja nossa <a href="paginas/politica-privacidade.html">Política de Privacidade</a></span>
+</div></footer></body></html>

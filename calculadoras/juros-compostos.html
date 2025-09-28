@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Calculadora de Juros Compostos</title><meta content="Aportes + juros ao longo do tempo." name="description"/>
+<link href="../ativos/css/style.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de Juros Compostos","description":"Aportes + juros ao longo do tempo.","operatingSystem":"All"}</script>
+</head><body>
+<header><div class="nav">
+<a class="brand" href="../index.html"><span class="dot"></span> Calcula Tudo Online</a>
+
+</div></header><div class="container">
+<h1>Juros Compostos</h1>
+<form><fieldset><legend>Parâmetros</legend>
+<label>Valor inicial (R$)<input id="principal" step="0.01" type="number" value="1000"/></label>
+<label>Aporte mensal (R$)<input id="aporte" step="0.01" type="number" value="200"/></label>
+<label>Taxa ao ano (%)<input id="taxaAno" step="0.0001" type="number" value="12"/></label>
+<label>Prazo (anos)<input id="anos" step="0.1" type="number" value="5"/></label>
+<label>Capitalização<select id="cap"><option value="12">Mensal</option><option value="1">Anual</option><option value="4">Trimestral</option></select></label>
+<button id="btn" type="button">Calcular</button>
+</fieldset></form>
+<div class="output" hidden="" id="out"><div id="resumo"></div>
+<div style="overflow:auto"><table><thead><tr><th>Mês</th><th>Saldo Inicial</th><th>Aporte</th><th>Juros</th><th>Saldo Final</th></tr></thead><tbody id="tb"></tbody></table></div>
+<small>Simulação com aportes no fim de cada período.</small></div>
+<script>
+const brl = new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'});
+function calc(p,a,tAno,anos,n){const N=Math.round(anos*n),i=(tAno/100)/n;let s=p;let rows=[],jTot=0;
+for(let m=1;m<=N;m++){const si=s;const j=si*i; jTot+=j; s=si+j+a; rows.push([m,si,a,j,s]);}
+return {rows,final:s,investido:p+a*N,juros:jTot};}
+document.getElementById('btn').onclick=()=>{
+  const p=parseFloat(principal.value||0), a=parseFloat(aporte.value||0), t=parseFloat(taxaAno.value||0), anosv=parseFloat(anos.value||0), n=parseInt(cap.value,10);
+  const r=calc(p,a,t,anosv,n); tb.innerHTML=r.rows.map(x=>`<tr><td>${x[0]}</td><td>${brl.format(x[1])}</td><td>${brl.format(x[2])}</td><td>${brl.format(x[3])}</td><td>${brl.format(x[4])}</td></tr>`).join('');
+  resumo.innerHTML = `<p><strong>Investido:</strong> ${brl.format(r.investido)}<br><strong>Juros:</strong> ${brl.format(r.juros)}<br><strong>Valor final:</strong> ${brl.format(r.final)}</p>`;
+  out.hidden=false;
+}; document.getElementById('btn').click();
+</script>
+</div><footer><div class="footer-inner">
+<span class="badge">© 2025 Calcula Tudo Online</span>
+<span class="badge">LGPD: veja nossa <a href="paginas/politica-privacidade.html">Política de Privacidade</a></span>
+</div></footer></body></html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>TMB — Taxa Metabólica Basal</title><meta content="Estimativa de calorias em repouso." name="description"/>
+<link href="../ativos/css/style.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"TMB — Taxa Metabólica Basal","description":"Estimativa de calorias em repouso.","operatingSystem":"All"}</script>
+</head><body>
+<header><div class="nav">
+<a class="brand" href="../index.html"><span class="dot"></span> Calcula Tudo Online</a>
+
+</div></header><div class="container">
+<h1>TMB — Taxa Metabólica Basal</h1>
+<form><fieldset><legend>Parâmetros</legend>
+<label>Sexo<select id="sexo"><option value="M">Masculino</option><option value="F">Feminino</option></select></label>
+<label>Idade (anos)<input id="idade" type="number" value="30"/></label>
+<label>Peso (kg)<input id="peso" step="0.1" type="number" value="75"/></label>
+<label>Altura (cm)<input id="altura" step="0.1" type="number" value="175"/></label>
+<button id="btn" type="button">Calcular</button>
+</fieldset></form>
+<div class="output" hidden="" id="out"><div id="res"></div><small>Fórmula de Mifflin–St Jeor.</small></div>
+<script>
+const nf=new Intl.NumberFormat('pt-BR',{maximumFractionDigits:0});
+btn.onclick=()=>{
+  const s=sexo.value, a=parseFloat(idade.value||0), p=parseFloat(peso.value||0), h=parseFloat(altura.value||0);
+  let tmb = s==='M' ? (10*p + 6.25*h - 5*a + 5) : (10*p + 6.25*h - 5*a - 161);
+  res.innerHTML = `<p><strong>TMB:</strong> ${nf.format(tmb)} kcal/dia</p>`;
+  out.hidden=false;
+};
+</script>
+</div><footer><div class="footer-inner">
+<span class="badge">© 2025 Calcula Tudo Online</span>
+<span class="badge">LGPD: veja nossa <a href="paginas/politica-privacidade.html">Política de Privacidade</a></span>
+</div></footer></body></html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Calculadora de Regra de 3</title><meta content="Proporções diretas simples." name="description"/>
+<link href="../ativos/css/style.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de Regra de 3","description":"Proporções diretas simples.","operatingSystem":"All"}</script>
+</head><body>
+<header><div class="nav">
+<a class="brand" href="../index.html"><span class="dot"></span> Calcula Tudo Online</a>
+
+</div></header><div class="container">
+<h1>Regra de 3</h1>
+<p>Preencha qualquer três campos para calcular o quarto.</p>
+<form><fieldset><legend>Proporção direta</legend>
+<label>A<input id="a" step="0.0001" type="number" value="2"/></label>
+<label>B<input id="b" step="0.0001" type="number" value="4"/></label>
+<label>C<input id="c" step="0.0001" type="number" value="5"/></label>
+<label>D (resultado)<input id="d" step="0.0001" type="number"/></label>
+<button id="btn1" type="button">Calcular D</button>
+</fieldset></form>
+<div class="output" hidden="" id="out1"><div id="r1"></div></div>
+<script>
+const nf=new Intl.NumberFormat('pt-BR',{maximumFractionDigits:6});
+btn1.onclick=()=>{const A=parseFloat(a.value||0),B=parseFloat(b.value||0),C=parseFloat(c.value||0); if(B===0){r1.textContent='B não pode ser 0'; out1.hidden=false; return;}
+const D=(B*C)/A; d.value = +D.toFixed(6); r1.innerHTML = `D = (B × C) / A = ${nf.format(D)}`; out1.hidden=false;};
+btn1.click();
+</script>
+</div><footer><div class="footer-inner">
+<span class="badge">© 2025 Calcula Tudo Online</span>
+<span class="badge">LGPD: veja nossa <a href="paginas/politica-privacidade.html">Política de Privacidade</a></span>
+</div></footer></body></html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Calculadora de Porcentagem</title><meta content="Descontos, acréscimos e proporções." name="description"/>
+<link href="../ativos/css/style.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de Porcentagem","description":"Descontos, acréscimos e proporções.","operatingSystem":"All"}</script>
+</head><body>
+<header><div class="nav">
+<a class="brand" href="../index.html"><span class="dot"></span> Calcula Tudo Online</a>
+
+</div></header><div class="container">
+<h1>Porcentagem</h1>
+<form><fieldset><legend>Operações comuns</legend>
+<label>Quanto é X% de Y?
+  <input id="x" placeholder="X %" step="0.01" type="number" value="10"/>
+<input id="y" placeholder="Y" step="0.01" type="number" value="200"/>
+</label>
+<button id="btn1" type="button">Calcular X% de Y</button>
+<hr/>
+<label>Aplicar desconto (%) em um valor
+  <input id="v1" placeholder="Valor" step="0.01" type="number" value="100"/>
+<input id="dsc" placeholder="Desconto %" step="0.01" type="number" value="15"/>
+</label>
+<button id="btn2" type="button">Aplicar desconto</button>
+<hr/>
+<label>Aplicar aumento (%) em um valor
+  <input id="v2" placeholder="Valor" step="0.01" type="number" value="100"/>
+<input id="aum" placeholder="Aumento %" step="0.01" type="number" value="10"/>
+</label>
+<button id="btn3" type="button">Aplicar aumento</button>
+</fieldset></form>
+<div class="output" hidden="" id="out"><div id="res"></div></div>
+<script>
+const br=new Intl.NumberFormat('pt-BR',{maximumFractionDigits:2});
+btn1.onclick=()=>{const X=parseFloat(x.value||0),Y=parseFloat(y.value||0); const r=Y*(X/100); res.innerHTML=`<p>${br.format(X)}% de ${br.format(Y)} = <strong>${br.format(r)}</strong></p>`; out.hidden=false;};
+btn2.onclick=()=>{const V=parseFloat(v1.value||0),P=parseFloat(dsc.value||0); const r=V*(1-P/100); res.innerHTML=`<p>${br.format(P)}% de desconto em ${br.format(V)} = <strong>${br.format(r)}</strong></p>`; out.hidden=false;};
+btn3.onclick=()=>{const V=parseFloat(v2.value||0),P=parseFloat(aum.value||0); const r=V*(1+P/100); res.innerHTML=`<p>${br.format(P)}% de aumento em ${br.format(V)} = <strong>${br.format(r)}</strong></p>`; out.hidden=false;};
+btn1.click();
+</script>
+</div><footer><div class="footer-inner">
+<span class="badge">© 2025 Calcula Tudo Online</span>
+<span class="badge">LGPD: veja nossa <a href="paginas/politica-privacidade.html">Política de Privacidade</a></span>
+</div></footer></body></html>

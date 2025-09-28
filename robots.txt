@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rafaelbrito00.github.io/calculatudo-online/sitemap.xml
